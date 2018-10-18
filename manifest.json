@@ -1,0 +1,12 @@
+{
+ 	"manifest_version": 2,
+ 	"name": "Random Quotes",
+ 	"version": "1.0",
+	"description": "Random book quotes will appear in the new tab.",
+	"icons": {
+		"16": "images/world-1.png"
+	},
+  	"chrome_url_overrides" : {
+    	"newtab": "index.html"
+  	}
+}
