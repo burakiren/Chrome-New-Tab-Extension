@@ -1,13 +1,39 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-	<title>Quotes</title>
-	<link rel="stylesheet" type="text/css" href="styles/index.css">
-    <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
+<script>
+	var request;
+	function sendInfo() {
+
+		var url = "http://extensions.biryudumkitap.com/quote";
+		
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                callback(true);
+            }
+            else {
+                callback(false);
+            }
+        };
+        xhr.send(projectData);
+	}
+
+	function getInfo() {
+		if (request.readyState == 4) {
+			var val = request.responseText;
+			document.getElementById('chiru').innerHTML = val;
+		}
+	}
+</script>
 </head>
+
 <body>
-    <img class="world" src="images/world-1.png">
+
+<form name="vinform">
+	<input type="button" value="ShowTable" onClick="sendInfo()">
+</form>
+
+<span id="chiru"> </span>
 </body>
 </html>
